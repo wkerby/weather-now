@@ -49,6 +49,7 @@ header {
 
 .day {
     background-color: gray;
+    padding: 2%;
 }
 
 #forecast {
