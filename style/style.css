@@ -53,7 +53,8 @@ header {
 
 #forecast {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin-bottom: 1%;
     /* flex-direction: column; */
 }
 
@@ -66,9 +67,32 @@ header {
     flex-direction: column;
     border: 1px solid black;
     width: 100%;
+    align-content: flex-start;
+    justify-content: flex-start;
 }
 
 button {
     background-color: royalblue;
     color: white;
+    margin: 1% 1%;
+}
+
+#recents button {
+    background-color: gray;
+}
+
+.days-ahead {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.day {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.current-day {
+    display: flex;
+    justify-content: flex-start;
 }
