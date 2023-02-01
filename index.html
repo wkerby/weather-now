@@ -15,145 +15,145 @@
 
 <body>
     <header>
-        <p>Weather Page</p>
+        <p>Weather Now</p>
     </header>
     <main>
         <div id="cities"> <!--display-flex, flex-direction column-->
             <div id="search">
                 <form>
-                    <label for="city">Search for a city:</label><br>
+                    <label for="city"><strong>Search for a city:</strong></label><br>
                     <input id="city" type="text" placeholder="search here">
                 </form>
                 <button>Search</button>
             </div>
+            <br>
             <div id="recents">
                 <div class="container">
                     <div class="row">
                         <button class="col"><span>Chicago</span></button>
                     </div>
                     <div class="row">
-                        <button class="col"><span>Washington</span></button>
+                        <button class="col"><span>Los Angeles</span></button>
                     </div>
                 </div>
             </div>
         </div>
         <div id="weather">
-            <div id="current-day">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">Atlanta 9/13/2022</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Temp</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Wind</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Humidity</div>
+            <div id="current-box">
+                <h2>Today</h2>
+                <div id="current-day">
+                    <div class="container">
+                        <div>Atlanta, GA</div>
+                        <div>9/13/2022</div>
+                        <div>Temperature</div>
+                        <div>Wind</div>
+                        <div>Humidity</div>
                     </div>
                 </div>
             </div>
-            <h1>5-day forecast</h1>
             <div id="forecast">
-                <div class="days-ahead">
-                    <div class="day">
-                        <div class="container">
-                            <div class="row">
-                                9/14/2022
-                            </div>
-                            <div class="row">
-                                Image
-                            </div>
-                            <div class="row">
-                                Temperature
-                            </div>
-                            <div class="row">
-                                Wind
-                            </div>
-                            <div class="row">
-                                Humidity
-                            </div>
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="container">
-                            <div class="row">
-                                9/15/2022
-                            </div>
-                            <div class="row">
-                                Image
-                            </div>
-                            <div class="row">
-                                Temperature
-                            </div>
-                            <div class="row">
-                                Wind
-                            </div>
-                            <div class="row">
-                                Humidity
+                <div id="forecast-box">
+                    <h2>5-day forecast for <span id=city>Atlanta</span>, <span id=state>GA</span></h2>
+                    <div class="days-ahead">
+                        <div class="day">
+                            <div class="container">
+                                <div class="row">
+                                    9/14/2022
+                                </div>
+                                <div class="row">
+                                    Image
+                                </div>
+                                <div class="row">
+                                    Temperature
+                                </div>
+                                <div class="row">
+                                    Wind
+                                </div>
+                                <div class="row">
+                                    Humidity
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="day">
-                        <div class="container">
-                            <div class="row">
-                                9/16/2022
-                            </div>
-                            <div class="row">
-                                Image
-                            </div>
-                            <div class="row">
-                                Temperature
-                            </div>
-                            <div class="row">
-                                Wind
-                            </div>
-                            <div class="row">
-                                Humidity
-                            </div>
-                        </div>
-                    </div>
-                    <div class="day">
-                        <div class="container">
-                            <div class="row">
-                                9/17/2022
-                            </div>
-                            <div class="row">
-                                Image
-                            </div>
-                            <div class="row">
-                                Temperature
-                            </div>
-                            <div class="row">
-                                Wind
-                            </div>
-                            <div class="row">
-                                Humidity
+                        <div class="day">
+                            <div class="container">
+                                <div class="row">
+                                    9/15/2022
+                                </div>
+                                <div class="row">
+                                    Image
+                                </div>
+                                <div class="row">
+                                    Temperature
+                                </div>
+                                <div class="row">
+                                    Wind
+                                </div>
+                                <div class="row">
+                                    Humidity
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="day">
-                        <div class="container">
-                            <div class="row">
-                                9/18/2022
+                        <div class="day">
+                            <div class="container">
+                                <div class="row">
+                                    9/16/2022
+                                </div>
+                                <div class="row">
+                                    Image
+                                </div>
+                                <div class="row">
+                                    Temperature
+                                </div>
+                                <div class="row">
+                                    Wind
+                                </div>
+                                <div class="row">
+                                    Humidity
+                                </div>
                             </div>
-                            <div class="row">
-                                Image
+                        </div>
+                        <div class="day">
+                            <div class="container">
+                                <div class="row">
+                                    9/17/2022
+                                </div>
+                                <div class="row">
+                                    Image
+                                </div>
+                                <div class="row">
+                                    Temperature
+                                </div>
+                                <div class="row">
+                                    Wind
+                                </div>
+                                <div class="row">
+                                    Humidity
+                                </div>
                             </div>
-                            <div class="row">
-                                Temperature
-                            </div>
-                            <div class="row">
-                                Wind
-                            </div>
-                            <div class="row">
-                                Humidity
+                        </div>
+                        <div class="day">
+                            <div class="container">
+                                <div class="row">
+                                    9/18/2022
+                                </div>
+                                <div class="row">
+                                    Image
+                                </div>
+                                <div class="row">
+                                    Temperature
+                                </div>
+                                <div class="row">
+                                    Wind
+                                </div>
+                                <div class="row">
+                                    Humidity
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </main>
 </body>
 

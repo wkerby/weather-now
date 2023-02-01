@@ -36,9 +36,10 @@ main {
 #cities {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border-right: 1px solid darkgrey;
+    border-top: 1px solid black;
     padding-left: 0.5%;
-    padding-right: 1%;
+    padding-right: 3%;
 }
 
 header {
@@ -50,6 +51,7 @@ header {
     font-weight: 900;
     font-size: 1.5em;
     height: 6vh;
+    padding-top: 0.5%;
 }
 
 .day {
@@ -85,6 +87,7 @@ button {
 
 #recents button {
     background-color: gray;
+    margin: 2% 2%;
 }
 
 .days-ahead {
@@ -102,4 +105,69 @@ button {
 .current-day {
     display: flex;
     justify-content: flex-start;
+}
+
+#forecast-box,
+#current-box {
+    margin-left: 1%;
+    margin-top: 1%;
+
+}
+
+#current-box {
+    border-bottom: 1px solid black;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+h2 {
+    margin-bottom: 3%;
+}
+
+#cities form {
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+#current-day .container {
+    border: 1px solid black;
+    width: 20%;
+    height: 100%;
+    margin-left: 2%;
+    margin-top: -1%;
+    padding: 2%;
+    font-size: 2em;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#search {
+    margin-top: 7%;
+}
+
+input {
+    margin-top: 5%;
+    width: 99%;
+}
+
+#recents {
+    margin-top:
+}
+
+#search button {
+
+    margin-top: 1%;
+}
+
+#label {
+    font-size: large;
+    margin-bottom: 13%;
+}
+
+#forecast-box: {
+    display: flex;
+    justify-content: space-between;
 }
