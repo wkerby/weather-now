@@ -175,3 +175,8 @@ input {
 #current-day .container div div:nth-child(1) {
     font-weight: 900;
 }
+
+#city,
+#state {
+    font-weight: 800;
+}
