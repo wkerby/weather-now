@@ -171,3 +171,7 @@ input {
     display: flex;
     justify-content: space-between;
 }
+
+#current-day .container div div:nth-child(1) {
+    font-weight: 900;
+}
