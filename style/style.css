@@ -47,6 +47,8 @@ header {
     align-items: center;
     background-color: rebeccapurple;
     color: white;
+    font-weight: 900;
+    font-size: 1.5em;
     height: 6vh;
 }
 
