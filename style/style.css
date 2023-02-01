@@ -83,6 +83,7 @@ button {
     background-color: royalblue;
     color: white;
     margin: 1% 1%;
+    font-size: 1.2em;
 }
 
 #recents button {
@@ -129,6 +130,7 @@ h2 {
 #cities form {
     margin-top: 1%;
     margin-bottom: 3%;
+    font-size: 1.5em;
 }
 
 #current-day .container {
@@ -165,11 +167,6 @@ input {
 #label {
     font-size: large;
     margin-bottom: 13%;
-}
-
-#forecast-box: {
-    display: flex;
-    justify-content: space-between;
 }
 
 #current-day .container div div:nth-child(1) {
