@@ -1,0 +1,74 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#row-1 {
+    background-color: rebeccapurple;
+    /* align-items: center; */
+    color: white;
+    height: 5vh;
+    /*how do you text align center text that is in display:flex*/
+}
+
+#row-2 {
+    height: 40vh;
+}
+
+#row-2 .col-3 {
+    background-color: gray;
+
+}
+
+#row-3 {
+    background-color: blue;
+}
+
+main {
+    display: flex;
+}
+
+#search {
+    display: flex;
+    flex-direction: column;
+}
+
+#cities {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rebeccapurple;
+    color: white;
+    height: 6vh;
+}
+
+.day {
+    background-color: gray;
+}
+
+#forecast {
+    display: flex;
+    justify-content: space-around;
+    /* flex-direction: column; */
+}
+
+/* .days-ahead {
+    display: flex;
+} */
+
+#weather {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 100%;
+}
+
+button {
+    background-color: royalblue;
+    color: white;
+}
