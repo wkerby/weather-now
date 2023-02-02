@@ -13,8 +13,8 @@ function getLatLon(key, city) {
             return response.json();
         })
         .then(function (data) {
-            var lat = data[0]['lat'];
-            var lon = data[0]['lon'];
+            var lat = (Math.round(data[0]['lat'] * 100) / 100).toString();
+            var lon = (Math.round(data[0]['lon'] * 100) / 100).toString();
             console.log(lat);
             console.log(lon);
         });
