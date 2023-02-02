@@ -4,7 +4,7 @@ var atlantaCoord = [33.75, -84.39];
 
 //create function that returns latitued and logitude of an input city
 function getLatLon(key, city) {
-    var requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + key;
+    var requestUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + key;
     var lat = undefined;
     var lon = undefined;
     fetch(requestUrl)
@@ -13,15 +13,13 @@ function getLatLon(key, city) {
             return response.json();
         })
         .then(function (data) {
-            var lat = data[0]['lat'];
-            var lon = data[0]['lon'];
-            console.log(lat);
-            console.log(lon);
+            lat = data[0]['lat'];
+            lon = data[0]['lon'];
             return [lat, lon];
         });
 }
 
-console.log(getLatLon(myKey, "Atlanta"));
+console.log(getLatLon(myKey, "London"));
 
 //create function that returns JSON weather data when provided with valid degrees for longitued and latitude
 function getWeather(key, coordinates) {
@@ -40,4 +38,3 @@ function getWeather(key, coordinates) {
 
 }
 
-getLatLon(myKey, "Atlanta");
