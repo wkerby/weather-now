@@ -13,9 +13,9 @@ function getLatLon(key, city) {
             return response.json();
         })
         .then(function (data) {
-            var lat = (Math.round(data[0]['lat'] * 100) / 100).toString();
-            var lon = (Math.round(data[0]['lon'] * 100) / 100).toString();
-            console.log(lat);
+            getWeather(myKey, data[0])
+            // var lat = (Math.round(data[0]['lat'] * 100) / 100).toString();
+            // var lon = (Math.round(data[0]['lon'] * 100) / 100).toString();
             console.log(lon);
         });
     return [lat, lon];
@@ -25,9 +25,15 @@ function getLatLon(key, city) {
 console.log(getLatLon(myKey, "Atlanta"));
 
 //create function that returns JSON weather data when provided with valid degrees for longitued and latitude
-function getWeather(key, coordinates) {
-    requestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + coordinates[0].toString() + "&lon="
-        + coordinates[1].toString() + "&appid=" + key + "&units=imperial";
+function getWeather(key, weathData) {
+    var { lat, lon, city } = weathData; //use weather
+    // var lat = weathData.lat
+    // var lon = weathData.lon;
+    // var city = weathData.name;
+
+    console.log(weathData);
+    requestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon="
+        + lon + "&appid=" + key + "&units=imperial";
 
     fetch(requestUrl)
         .then(function (response) {
