@@ -13,13 +13,16 @@ function getLatLon(key, city) {
             return response.json();
         })
         .then(function (data) {
-            lat = data[0]['lat'];
-            lon = data[0]['lon'];
-            return [lat, lon];
+            var lat = data[0]['lat'];
+            var lon = data[0]['lon'];
+            console.log(lat);
+            console.log(lon);
         });
+    return [lat, lon];
+
 }
 
-console.log(getLatLon(myKey, "London"));
+console.log(getLatLon(myKey, "Atlanta"));
 
 //create function that returns JSON weather data when provided with valid degrees for longitued and latitude
 function getWeather(key, coordinates) {
