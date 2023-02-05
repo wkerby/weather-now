@@ -1,9 +1,12 @@
 //create variables for elements that will be targeted in document.body
 var currentCityEl = $("#current-city");
+var currentStateEl = $("#current-state");
 var currentDateEl = $("#current-date");
 var currentTempEl = $("#current-temp");
 var currentWindEl = $("#current-wind");
+var currentHumidEl = $("#current-humidity");
 var forecastCityEl = $("#forecast-city");
+var forecastStateEl = $("#forecast-state");
 
 //fetch weather data for Atlanta, GA
 var myKey = "c55febd7847bed4a6181dc26dc5779cf";
@@ -16,11 +19,15 @@ function getLatLon(key, city) {
     // var lon = undefined;
     fetch(requestUrl)
         .then(function (response) {
-            console.log(response.status)
             return response.json();
         })
         .then(function (data) {
-            getWeather(myKey, data[0])
+            console.log(data);
+            var state = data[0].state;
+            currentStateEl.text(state);
+            forecastStateEl.text(state);
+
+            getWeather(myKey, data[0]) //assuming that we want the most populous city in the event that there are multiple cities in US with the same name
             // var lat = (Math.round(data[0]['lat'] * 100) / 100).toString();
             // var lon = (Math.round(data[0]['lon'] * 100) / 100).toString();
         });
@@ -50,10 +57,22 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             console.log("Forecast for: " + data.list[0].dt_txt);
             console.log("Temperature: " + data.list[0].main.temp);
             var city = data.city.name;
-            var date = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
+            var current_date = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
+            var current_temp = data.list[0].main.temp;
+            var current_wind = data.list[0].wind.speed;
+            var current_humidity = data.list[0].main.humidity;
             currentCityEl.text(city);
+            currentDateEl.text(current_date);
+            currentTempEl.text(current_temp);
+            currentWindEl.text(current_wind);
+            currentHumidEl.text(current_humidity);
+
             forecastCityEl.text(city);
-            currentDateEl.text(date);
+            postWeatherOut(data, 2);
+            // var out1Date = 
+
+
+
 
         });
 
@@ -89,3 +108,27 @@ function dateReturn(dateList) {
 
 
 }
+
+//create a function that provides
+
+function postWeatherOut(data, numDays) {
+    var currentMonth = parseInt(data.list[0].dt_txt.substring(0, 10).split("-")[1]);
+    var currentDay = parseInt(data.list[0].dt_txt.substring(0, 10).split("-")[2]);
+    var postDay = currentDay + numDays;
+    console.log(postDay);
+    // var city = data.city.name;
+    // var current_date = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
+    // var current_temp = data.list[0].main.temp;
+    // var current_wind = data.list[0].wind.speed;
+    // var current_humidity = data.list[0].main.humidity;
+    // currentCityEl.text(city);
+    // currentDateEl.text(current_date);
+    // currentTempEl.text(current_temp);
+    // currentWindEl.text(current_wind);
+    // currentHumidEl.text(current_humidity);
+
+
+
+
+}
+

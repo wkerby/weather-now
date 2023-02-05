@@ -166,7 +166,12 @@ input {
     margin-bottom: 13%;
 }
 
-#current-day .container div div:nth-child(1) {
+/* #current-day .container div div:nth-child(1) {
+    font-weight: 900;
+} */
+
+#current-city,
+#current-state {
     font-weight: 900;
 }
 
