@@ -32,6 +32,20 @@ var out5Weather = $("#out-5-weather");
 var out5Temp = $("#out-5-temp");
 var out5Wind = $("#out-5-wind");
 var out5Humidity = $("#out-5-humidity");
+var monthDays = {
+    1: 31,
+    2: 28,
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11: 30,
+    12: 31
+}
 
 console.log("test");
 
@@ -84,18 +98,18 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             console.log("Forecast for: " + data.list[0].dt_txt);
             console.log("Temperature: " + data.list[0].main.temp);
             var city = data.city.name;
-            var current_date = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
-            var current_temp = data.list[0].main.temp;
-            var current_wind = data.list[0].wind.speed;
-            var current_humidity = data.list[0].main.humidity;
+            var currentDate = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
+            var currentTemp = data.list[0].main.temp;
+            var currentWind = data.list[0].wind.speed;
+            var currentHumidity = data.list[0].main.humidity;
             currentCityEl.text(city);
-            currentDateEl.text(current_date);
-            currentTempEl.text(current_temp);
-            currentWindEl.text(current_wind);
-            currentHumidEl.text(current_humidity);
+            currentDateEl.text(currentDate);
+            currentTempEl.text(currentTemp);
+            currentWindEl.text(currentWind);
+            currentHumidEl.text(currentHumidity);
 
             forecastCityEl.text(city);
-            postWeatherOut(data, 2);
+            postWeatherOut1(data);
             // var out1Date = 
 
 
@@ -138,24 +152,47 @@ function dateReturn(dateList) {
 
 //create a function that provides
 
-function postWeatherOut(data, numDays) {
+function postWeatherOut1(data) {
     var currentMonth = parseInt(data.list[0].dt_txt.substring(0, 10).split("-")[1]);
     var currentDay = parseInt(data.list[0].dt_txt.substring(0, 10).split("-")[2]);
-    var postDay = currentDay + numDays;
-    console.log(postDay);
-    // var city = data.city.name;
-    // var current_date = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
-    // var current_temp = data.list[0].main.temp;
-    // var current_wind = data.list[0].wind.speed;
-    // var current_humidity = data.list[0].main.humidity;
-    // currentCityEl.text(city);
-    // currentDateEl.text(current_date);
-    // currentTempEl.text(current_temp);
-    // currentWindEl.text(current_wind);
-    // currentHumidEl.text(current_humidity);
+    var postDay = currentDay + 1;
+    if (postDay > monthDays[currentMonth]) {
+        postDay = postDay - monthDays[currentMonth];
 
+    }
 
+    for (var i = 0; i < data.list.length; i++) {
+        if (parseInt(data.list[i].dt_txt.substring(0, 10).split("-")[2]) == postDay) {
+            var out1DateVal = dateReturn(data.list[i].dt_txt.substring(0, 10).split("-"));
+            var out1WeatherVal = data.list[i].weather.main;
+            var out1TempVal = data.list[i].main.temp;
+            var out1WindVal = data.list[i].wind.speed;
+            var out1HumidityVal = data.list[i].main.humidity
+            break;
+        }
+    }
 
+    console.log("Out 1 Forecast Date: " + out1DateVal);
+    console.log("Out 1 Temperature: " + out1TempVal);
+
+    out1Date.text(out1DateVal);
+    out1Weather.text(out1WeatherVal);
+    out1Temp.text(out1TempVal);
+    out1Wind.text(out1WindVal);
+    out1Humidity.text(out1HumidityVal);
 
 }
+
+    // var city = data.city.name;
+    // var currentDate = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
+    // var currentTemp = data.list[0].main.temp;
+    // var currentWind = data.list[0].wind.speed;
+    // var currentHumidity = data.list[0].main.humidity;
+    // currentCityEl.text(city);
+    // currentDateEl.text(currentDate);
+    // currentTempEl.text(currentTemp);
+    // currentWindEl.text(currentWind);
+    // currentHumidEl.text(currentHumidity);
+
+
 
