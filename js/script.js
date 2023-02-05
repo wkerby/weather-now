@@ -164,7 +164,7 @@ function postWeatherOut1(data) {
     for (var i = 0; i < data.list.length; i++) {
         if (parseInt(data.list[i].dt_txt.substring(0, 10).split("-")[2]) == postDay) {
             var out1DateVal = dateReturn(data.list[i].dt_txt.substring(0, 10).split("-"));
-            var out1WeatherVal = data.list[i].weather.main;
+            var out1WeatherVal = data.list[i].weather[0].main;
             var out1TempVal = data.list[i].main.temp;
             var out1WindVal = data.list[i].wind.speed;
             var out1HumidityVal = data.list[i].main.humidity
@@ -173,7 +173,13 @@ function postWeatherOut1(data) {
     }
 
     console.log("Out 1 Forecast Date: " + out1DateVal);
+    console.log("Out 1 Weather: " + out1WeatherVal);
     console.log("Out 1 Temperature: " + out1TempVal);
+    console.log("Out 1 Wind: " + out1WindVal);
+    console.log("Out 1 Humidity: " + out1HumidityVal);
+
+
+
 
     out1Date.text(out1DateVal);
     out1Weather.text(out1WeatherVal);
