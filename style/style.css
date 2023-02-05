@@ -170,7 +170,7 @@ input {
     font-weight: 900;
 }
 
-#city,
-#state {
+#forecast-city,
+#forecast-state {
     font-weight: 800;
 }
