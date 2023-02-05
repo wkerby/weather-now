@@ -7,6 +7,33 @@ var currentWindEl = $("#current-wind");
 var currentHumidEl = $("#current-humidity");
 var forecastCityEl = $("#forecast-city");
 var forecastStateEl = $("#forecast-state");
+var out1Date = $("#out-1-date");
+var out1Weather = $("#out-1-weather");
+var out1Temp = $("#out-1-temp");
+var out1Wind = $("#out-1-wind");
+var out1Humidity = $("#out-1-humidity");
+var out2Date = $("#out-2-date");
+var out2Weather = $("#out-2-weather");
+var out2Temp = $("#out-2-temp");
+var out2Wind = $("#out-2-wind");
+var out2Humidity = $("#out-2-humidity");
+var out3Date = $("#out-3-date");
+var out3Weather = $("#out-3-weather");
+var out3Temp = $("#out-3-temp");
+var out3Wind = $("#out-3-wind");
+var out3Humidity = $("#out-3-humidity");
+var out4Date = $("#out-4-date");
+var out4Weather = $("#out-4-weather");
+var out4Temp = $("#out-4-temp");
+var out4Wind = $("#out-4-wind");
+var out4Humidity = $("#out-4-humidity");
+var out5Date = $("#out-5-date");
+var out5Weather = $("#out-5-weather");
+var out5Temp = $("#out-5-temp");
+var out5Wind = $("#out-5-wind");
+var out5Humidity = $("#out-5-humidity");
+
+console.log("test");
 
 //fetch weather data for Atlanta, GA
 var myKey = "c55febd7847bed4a6181dc26dc5779cf";
