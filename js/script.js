@@ -81,7 +81,7 @@ function getLatLon(key, city) {
 
 }
 
-console.log(getLatLon(myKey, "Atlanta"));
+console.log(getLatLon(myKey, "Chicago"));
 
 //create function that returns JSON weather data when provided with valid degrees for longitued and latitude
 function getWeather(key, weathData) { //parameter passed in getWeather is the object that is returned from getLatLon
@@ -124,13 +124,6 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
 
 
         });
-
-
-
-
-
-
-
 
 }
 
@@ -197,7 +190,5 @@ function postWeatherOut(data) {
 
 
 }
-
-
 
 
