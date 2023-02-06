@@ -111,7 +111,8 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             var currentHumidity = data.list[0].main.humidity;
             currentCityEl.text(city);
             currentDateEl.text(currentDate);
-            currentWeatherEl.text(currentWeather);
+            weatherIcon(currentWeather, currentWeatherEl);
+            // currentWeatherEl.text(currentWeather);
             currentTempEl.text(currentTemp);
             currentWindEl.text(currentWind);
             currentHumidEl.text(currentHumidity);
@@ -188,7 +189,20 @@ function postWeatherOut(data) {
 
     }
 
-
 }
 
+//create a function that displays correct weather icon based on weather retrieved from api
+function weatherIcon(weather, element) {
+    if (weather == "clouds") {
+        element.attr("data-state", "clouds");
+    }
 
+    else if (weather == "rain") {
+        element.attr("data-state", "rain");
+    }
+
+    else if (weather == "snow") {
+        element.attr("data-state", "snow");
+    }
+
+}

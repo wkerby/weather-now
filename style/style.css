@@ -185,3 +185,8 @@ input {
 #forecast-state {
     font-weight: 800;
 }
+
+img {
+    width: 50px;
+    height: 40px;
+}
