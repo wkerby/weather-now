@@ -182,7 +182,8 @@ function postWeatherOut(data) {
         console.log("Out " + i + " Humidity: " + outHumidity);
 
         forecastDates[i - 1].text(outDate);
-        forecastWeathers[i - 1].text(outWeather);
+        weatherIcon(outWeather, forecastWeathers[i - 1]);
+        // forecastWeathers[i - 1].text(outWeather);
         forecastTemps[i - 1].text(outTemp);
         forecastWinds[i - 1].text(outWind);
         forecastHumidities[i - 1].text(outHumidity);
@@ -193,16 +194,18 @@ function postWeatherOut(data) {
 
 //create a function that displays correct weather icon based on weather retrieved from api
 function weatherIcon(weather, element) {
-    if (weather == "clouds") {
-        element.attr("data-state", "clouds");
+    if (weather == "Clouds") {
+        element.attr("src", "./assets/clouds.jpg");
     }
 
-    else if (weather == "rain") {
-        element.attr("data-state", "rain");
+    else if (weather == "Rain") {
+        element.attr("src", "./assets/rain.png");
     }
 
-    else if (weather == "snow") {
-        element.attr("data-state", "snow");
+    else if (weather == "Snow") {
+        console.log("Weather icon: Snow");
+        element.attr("src", "./assets/rain.png");
+
     }
 
 }
