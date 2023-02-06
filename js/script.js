@@ -113,8 +113,6 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             currentCityEl.text(city);
             currentDateEl.text(currentDate);
             returnImgSrc(currentWeatherIcon, currentWeatherEl);
-            // weatherIcon(currentWeather, currentWeatherEl);
-            // currentWeatherEl.text(currentWeather);
             currentTempEl.text(currentTemp);
             currentWindEl.text(currentWind);
             currentHumidEl.text(currentHumidity);
@@ -187,8 +185,6 @@ function postWeatherOut(data) {
         forecastDates[i - 1].text(outDate);
 
         returnImgSrc(outWeatherIcon, forecastWeathers[i - 1]);
-        // weatherIcon(outWeather, forecastWeathers[i - 1]);
-        // forecastWeathers[i - 1].text(outWeather);
         forecastTemps[i - 1].text(outTemp);
         forecastWinds[i - 1].text(outWind);
         forecastHumidities[i - 1].text(outHumidity);
@@ -197,23 +193,6 @@ function postWeatherOut(data) {
 
 }
 
-//create a function that displays correct weather icon based on weather retrieved from api
-function weatherIcon(weather, element) {
-    if (weather == "Clouds") {
-        element.attr("src", "./assets/clouds.jpg");
-    }
-
-    else if (weather == "Rain") {
-        element.attr("src", "./assets/rain.png");
-    }
-
-    else if (weather == "Snow") {
-        console.log("Weather icon: Snow");
-        element.attr("src", "./assets/rain.png");
-
-    }
-
-}
 
 //create a function to return correct url for weather icon from API
 function returnImgSrc(icon, element) {
