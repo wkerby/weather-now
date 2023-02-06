@@ -105,13 +105,15 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             console.log("Temperature: " + data.list[0].main.temp);
             var city = data.city.name;
             var currentDate = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
-            var currentWeather = data.list[0].weather[0].main;
+            // var currentWeather = data.list[0].weather[0].main;
+            var currentWeatherIcon = data.list[0].weather[0].icon;
             var currentTemp = data.list[0].main.temp;
             var currentWind = data.list[0].wind.speed;
             var currentHumidity = data.list[0].main.humidity;
             currentCityEl.text(city);
             currentDateEl.text(currentDate);
-            weatherIcon(currentWeather, currentWeatherEl);
+            returnImgSrc(currentWeatherIcon, currentWeatherEl);
+            // weatherIcon(currentWeather, currentWeatherEl);
             // currentWeatherEl.text(currentWeather);
             currentTempEl.text(currentTemp);
             currentWindEl.text(currentWind);
@@ -168,6 +170,7 @@ function postWeatherOut(data) {
             if (parseInt(data.list[d].dt_txt.substring(0, 10).split("-")[2]) == postDay) {
                 var outDate = dateReturn(data.list[d].dt_txt.substring(0, 10).split("-"));
                 var outWeather = data.list[d].weather[0].main;
+                var outWeatherIcon = data.list[d].weather[0].icon;
                 var outTemp = data.list[d].main.temp;
                 var outWind = data.list[d].wind.speed;
                 var outHumidity = data.list[d].main.humidity
@@ -182,7 +185,9 @@ function postWeatherOut(data) {
         console.log("Out " + i + " Humidity: " + outHumidity);
 
         forecastDates[i - 1].text(outDate);
-        weatherIcon(outWeather, forecastWeathers[i - 1]);
+
+        returnImgSrc(outWeatherIcon, forecastWeathers[i - 1]);
+        // weatherIcon(outWeather, forecastWeathers[i - 1]);
         // forecastWeathers[i - 1].text(outWeather);
         forecastTemps[i - 1].text(outTemp);
         forecastWinds[i - 1].text(outWind);
@@ -208,4 +213,10 @@ function weatherIcon(weather, element) {
 
     }
 
+}
+
+//create a function to return correct url for weather icon from API
+function returnImgSrc(icon, element) {
+    var url = "http://openweathermap.org/img/w/" + icon + ".png";
+    element.attr("src", url);
 }
