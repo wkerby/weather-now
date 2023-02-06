@@ -171,7 +171,13 @@ input {
 } */
 
 #current-city,
-#current-state {
+#current-state,
+#current-date,
+#out-1-date,
+#out-2-date,
+#out-3-date,
+#out-4-date,
+#out-5-date {
     font-weight: 900;
 }
 
