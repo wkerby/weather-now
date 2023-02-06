@@ -33,7 +33,11 @@ var out5WeatherEl = $("#out-5-weather");
 var out5TempEl = $("#out-5-temp");
 var out5WindEl = $("#out-5-wind");
 var out5HumidityEl = $("#out-5-humidity");
-var forecastDates = [out1DateEl, out2DateEl, out3DateEl, out4DateEl, outDate5El];
+var forecastDates = [out1DateEl, out2DateEl, out3DateEl, out4DateEl, out5DateEl];
+var forecastWeathers = [out1WeatherEl, out2WeatherEl, out3WeatherEl, out4WeatherEl, out5WeatherEl];
+var forecastTemps = [out1TempEl, out2TempEl, out3TempEl, out4TempEl, out5TempEl];
+var forecastWinds = [out1WindEl, out2WindEl, out3WindEl, out4WindEl, out5WindEl];
+var forecastHumidities = [out1HumidityEl, out2HumidityEl, out3HumidityEl, out4HumidityEl, out5HumidityEl];
 var monthDays = {
     1: 31,
     2: 28,
@@ -113,7 +117,7 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             currentHumidEl.text(currentHumidity);
 
             forecastCityEl.text(city);
-            postWeatherOut1(data);
+            postWeatherOut(data);
             // var out1Date = 
 
 
@@ -140,7 +144,7 @@ function dateReturn(dateList) {
         }
 
         else {
-            if (dateList[i] > 1) {
+            if (dateList[i][0] == "0") {
                 dateStr[i - 1] = dateList[i][1];
             }
             else {
@@ -156,37 +160,41 @@ function dateReturn(dateList) {
 
 //create a function places the forecasted weather from 1 day in advance on the page
 
-function postWeatherOut1(data) {
+function postWeatherOut(data) {
     var currentMonth = parseInt(data.list[0].dt_txt.substring(0, 10).split("-")[1]);
     var currentDay = parseInt(data.list[0].dt_txt.substring(0, 10).split("-")[2]);
-    var postDay = currentDay + 1;
-    if (postDay > monthDays[currentMonth]) {
-        postDay = postDay - monthDays[currentMonth];
+    for (var i = 1; i < forecastDates.length + 1; i++) {
+        var postDay = currentDay + i;
+        if (postDay > monthDays[currentMonth]) {
+            postDay = postDay - monthDays[currentMonth];
 
-    }
-
-    for (var i = 0; i < data.list.length; i++) {
-        if (parseInt(data.list[i].dt_txt.substring(0, 10).split("-")[2]) == postDay) {
-            var out1Date = dateReturn(data.list[i].dt_txt.substring(0, 10).split("-"));
-            var out1Weather = data.list[i].weather[0].main;
-            var out1Temp = data.list[i].main.temp;
-            var out1Wind = data.list[i].wind.speed;
-            var out1Humidity = data.list[i].main.humidity
-            break;
         }
+
+        for (var d = 0; d < data.list.length; d++) {
+            if (parseInt(data.list[d].dt_txt.substring(0, 10).split("-")[2]) == postDay) {
+                var outDate = dateReturn(data.list[d].dt_txt.substring(0, 10).split("-"));
+                var outWeather = data.list[d].weather[0].main;
+                var outTemp = data.list[d].main.temp;
+                var outWind = data.list[d].wind.speed;
+                var outHumidity = data.list[d].main.humidity
+                break;
+            }
+        }
+
+        console.log("Out " + i + " Forecast Date: " + outDate);
+        console.log("Out " + i + " Weather: " + outWeather);
+        console.log("Out " + i + " Temperature: " + outTemp);
+        console.log("Out " + i + " Wind: " + outWind);
+        console.log("Out " + i + " Humidity: " + outHumidity);
+
+        forecastDates[i - 1].text(outDate);
+        forecastWeathers[i - 1].text(outWeather);
+        forecastTemps[i - 1].text(outTemp);
+        forecastWinds[i - 1].text(outWind);
+        forecastHumidities[i - 1].text(outHumidity);
+
     }
 
-    console.log("Out 1 Forecast Date: " + out1Date);
-    console.log("Out 1 Weather: " + out1Weather);
-    console.log("Out 1 Temperature: " + out1Temp);
-    console.log("Out 1 Wind: " + out1Wind);
-    console.log("Out 1 Humidity: " + out1Humidity);
-
-    out1DateEl.text(out1Date);
-    out1WeatherEl.text(out1Weather);
-    out1TempEl.text(out1Temp);
-    out1WindEl.text(out1Wind);
-    out1HumidityEl.text(out1Humidity);
 
 }
 
