@@ -1,4 +1,6 @@
 //create variables for elements that will be targeted in document.body
+var searchButton = $("#search-button");
+var searchCity = $("#city");
 var currentCityEl = $("#current-city");
 var currentStateEl = $("#current-state");
 var currentDateEl = $("#current-date");
@@ -53,8 +55,6 @@ var monthDays = {
     12: 31
 }
 
-console.log("test");
-
 //fetch weather data for Atlanta, GA
 var myKey = "c55febd7847bed4a6181dc26dc5779cf";
 var atlantaCoord = [33.75, -84.39];
@@ -81,11 +81,11 @@ function getLatLon(key, city) {
 
 }
 
-console.log(getLatLon(myKey, "Chicago"));
+console.log(getLatLon(myKey, "Atlanta"));
 
 //create function that returns JSON weather data when provided with valid degrees for longitued and latitude
 function getWeather(key, weathData) { //parameter passed in getWeather is the object that is returned from getLatLon
-    var { lat, lon, city } = weathData; //use weather
+    var { lat, lon } = weathData; //use weather
     var lat = weathData.lat; //round to two decimal places
     var lon = weathData.lon; //round to two decimal places
     // var city = weathData.name; do I need city if I am passing as a parameter in getLatLon
@@ -199,3 +199,23 @@ function returnImgSrc(icon, element) {
     var url = "http://openweathermap.org/img/w/" + icon + ".png";
     element.attr("src", url);
 }
+
+//create a function that stores input of search element into a variable
+function cityStore(event) {
+
+    event.preventDefault();
+    var city = searchCity.val();
+    console.log("Current search city: " + city);
+    return city;
+}
+
+//create an event listener that tracks will retrieve data of city currently in
+//search container
+
+searchButton.click(function (event) {
+    cityStore(event);
+})
+
+
+
+
