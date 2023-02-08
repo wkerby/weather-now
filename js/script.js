@@ -201,20 +201,21 @@ function returnImgSrc(icon, element) {
 }
 
 //create a function that stores input of search element into a variable
-function cityStore(event) {
+function citySearch(event) {
 
     event.preventDefault();
     var city = searchCity.val();
-    console.log("Current search city: " + city);
-    return city;
+    var cityStrip = $.trim(city);
+    getLatLon(myKey, cityStrip);
 }
 
 //create an event listener that tracks will retrieve data of city currently in
 //search container
 
 searchButton.click(function (event) {
-    cityStore(event);
+    citySearch(event);
 })
+
 
 
 
