@@ -107,8 +107,8 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             var currentDate = dateReturn(data.list[0].dt_txt.substring(0, 10).split("-"));
             // var currentWeather = data.list[0].weather[0].main;
             var currentWeatherIcon = data.list[0].weather[0].icon;
-            var currentTemp = data.list[0].main.temp;
-            var currentWind = data.list[0].wind.speed;
+            var currentTemp = Math.round(data.list[0].main.temp * 10) / 10;
+            var currentWind = Math.round(data.list[0].wind.speed * 10) / 10;
             var currentHumidity = data.list[0].main.humidity;
             currentCityEl.text(city);
             currentDateEl.text(currentDate);
@@ -120,9 +120,6 @@ function getWeather(key, weathData) { //parameter passed in getWeather is the ob
             forecastCityEl.text(city);
             postWeatherOut(data);
             // var out1Date = 
-
-
-
 
         });
 
@@ -169,8 +166,8 @@ function postWeatherOut(data) {
                 var outDate = dateReturn(data.list[d].dt_txt.substring(0, 10).split("-"));
                 var outWeather = data.list[d].weather[0].main;
                 var outWeatherIcon = data.list[d].weather[0].icon;
-                var outTemp = data.list[d].main.temp;
-                var outWind = data.list[d].wind.speed;
+                var outTemp = Math.round(data.list[d].main.temp * 10) / 10;
+                var outWind = Math.round(data.list[d].wind.speed * 10) / 10;
                 var outHumidity = data.list[d].main.humidity
                 break;
             }
