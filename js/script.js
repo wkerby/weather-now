@@ -226,18 +226,20 @@ function citySearch(event) {
     var cityStrip = $.trim(city);
     getLatLon(myKey, cityStrip);
 }
-
-
 //create a function that stores up to the last 10 cities searched in localStorage and displays them on page for an easy recents search
 function cityStore() {
     if (localStorage.getItem('recentCities')) { //if the user has already searched for a city at least once
         recentCities = JSON.parse(localStorage.getItem('recentCities'));
+        var recentCityKeys = Object.keys(recentCities); //store an array of all keys of the recentCities object
+        var recentCityVals = Object.values(recentCities); //store an array of all values of the recentCities object
+        var addIdex = recentCityVals.indexOf(""); //provide index value for first instance of "" in recentCities object
+        recentCities[recentCityKeys[addIndex]] = searchCity.val(); //assing city in most recent search to first vacant key-value pair in recentCities object
     }
 
     else { //if a recentCities localStorage object does not currently exist
     }
 
-    recentCities[city1] = searchCity.val();
+
 }
 //create an event listener that tracks will retrieve data of city currently in
 //search container
