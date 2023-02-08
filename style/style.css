@@ -74,9 +74,9 @@
      /* flex-direction: column; */
  }
 
- .days-ahead {
+ /* .days-ahead {
      display: flex;
- }
+ } */
 
  #weather {
      display: flex;
@@ -201,4 +201,9 @@
 
  .day .container div {
      margin: 5% 0;
+ }
+
+ .row img {
+     width: 70px;
+     height: 56px;
  }
