@@ -47,6 +47,19 @@ var forecastWeathers = [out1WeatherEl, out2WeatherEl, out3WeatherEl, out4Weather
 var forecastTemps = [out1TempEl, out2TempEl, out3TempEl, out4TempEl, out5TempEl];
 var forecastWinds = [out1WindEl, out2WindEl, out3WindEl, out4WindEl, out5WindEl];
 var forecastHumidities = [out1HumidityEl, out2HumidityEl, out3HumidityEl, out4HumidityEl, out5HumidityEl];
+var recentCities = {
+    city1: "",
+    city2: "",
+    city3: "",
+    city4: "",
+    city5: "",
+    city6: "",
+    city7: "",
+    city8: "",
+    city9: "",
+    city10: ""
+}
+
 var monthDays = {
     1: 31,
     2: 28,
@@ -214,6 +227,11 @@ function citySearch(event) {
     getLatLon(myKey, cityStrip);
 }
 
+
+//create a function that stores up to the last 10 cities searched in localStorage and displays them on page for an easy recents search
+function cityStore() {
+    localStorage.setItem("City1", searchCity.val());
+}
 //create an event listener that tracks will retrieve data of city currently in
 //search container
 
