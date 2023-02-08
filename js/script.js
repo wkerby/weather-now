@@ -230,7 +230,14 @@ function citySearch(event) {
 
 //create a function that stores up to the last 10 cities searched in localStorage and displays them on page for an easy recents search
 function cityStore() {
-    localStorage.setItem("City1", searchCity.val());
+    if (localStorage.getItem('recentCities')) { //if the user has already searched for a city at least once
+        recentCities = JSON.parse(localStorage.getItem('recentCities'));
+    }
+
+    else { //if a recentCities localStorage object does not currently exist
+    }
+
+    recentCities[city1] = searchCity.val();
 }
 //create an event listener that tracks will retrieve data of city currently in
 //search container
