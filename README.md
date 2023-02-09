@@ -47,4 +47,4 @@ The following image provides a view into the basis of the application:
 
 Below you will find a link to the Git Page from which you can access the application:
 
-[INSERT GIT PAGE LINK]
+https://wkerby.github.io/weather-now/
